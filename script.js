@@ -33,7 +33,7 @@ function myMenuFunction(){
 
 /* ----- TYPING EFFECT ----- */
  let typingEffect = new Typed(".typedText",{
-    strings : ["Web Developer","Graphic Designer"],
+    strings : ["Web Developer", "Problem Solver"],
     loop : true,
     typeSpeed : 100, 
     backSpeed : 80,
@@ -58,8 +58,17 @@ sr.reveal('.social_icons',{delay: 200})
 sr.reveal('.featured-image',{delay: 300})
 
 
-/* -- PROJECT BOX -- */
-sr.reveal('.project-box',{interval: 200})
+/* -- PROJECT CARDS -- */
+sr.reveal('.project-card',{interval: 200})
+
+/* -- EXPERIENCE CARDS -- */
+sr.reveal('.experience-card',{interval: 200})
+
+/* -- EDUCATION CARDS -- */
+sr.reveal('.education-card',{interval: 200})
+
+/* -- CERTIFICATION CARDS -- */
+// sr.reveal('.certification-card',{interval: 200})
 
 /* -- HEADINGS -- */
 sr.reveal('.top-header',{})
@@ -68,7 +77,7 @@ sr.reveal('.top-header',{})
 
 /* -- ABOUT INFO & CONTACT INFO -- */
 const srLeft = ScrollReveal({
-  origin: 'left',
+  origin: 'bottom',
   distance: '80px',
   duration: 2000,
   reset: true
@@ -79,7 +88,7 @@ srLeft.reveal('.contact-info',{delay: 100})
 
 /* -- ABOUT SKILLS & FORM BOX -- */
 const srRight = ScrollReveal({
-  origin: 'right',
+  origin: 'bottom',
   distance: '80px',
   duration: 2000,
   reset: true
@@ -115,3 +124,14 @@ function scrollActive() {
 }
 
 window.addEventListener('scroll', scrollActive)
+
+/* ----- PROGRESS BAR FUNCTIONALITY ----- */
+function updateProgressBar() {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrollPercentage = (scrollTop / scrollHeight) * 100;
+  
+  document.getElementById('progressBar').style.width = scrollPercentage + '%';
+}
+
+window.addEventListener('scroll', updateProgressBar);
