@@ -135,3 +135,159 @@ function updateProgressBar() {
 }
 
 window.addEventListener('scroll', updateProgressBar);
+
+/* ----- CERTIFICATE CAROUSEL FUNCTIONALITY ----- */
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('certificatesTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtnMobile = document.getElementById('prevBtnMobile');
+    const nextBtnMobile = document.getElementById('nextBtnMobile');
+    const cards = document.querySelectorAll('.certification-card');
+    
+    let currentIndex = 0;
+    
+    function getCardsToShow() {
+        if (window.innerWidth <= 900) {
+            return 1; // Show 1 card on mobile
+        } else if (window.innerWidth <= 1024) {
+            return 2; // Show 2 cards on tablet
+        } else {
+            return 3; // Show 3 cards on desktop
+        }
+    }
+    
+    function getCardWidth() {
+        if (window.innerWidth <= 900) {
+            return 280 + 20; // Mobile card width + gap
+        } else if (window.innerWidth <= 1024) {
+            return 300 + 20; // Tablet card width + gap
+        } else if (window.innerWidth <= 1200) {
+            return 310 + 20; // Small desktop card width + gap
+        } else {
+            return 320 + 20; // Large desktop card width + gap
+        }
+    }
+    
+    let cardsToShow = getCardsToShow();
+    let cardWidth = getCardWidth();
+    let maxIndex = Math.max(0, cards.length - cardsToShow);
+    
+    function updateCarousel() {
+        const translateX = -currentIndex * cardWidth;
+        track.style.transform = `translateX(${translateX}px)`;
+        
+        // Update button states for both desktop and mobile
+        const isAtStart = currentIndex === 0;
+        const isAtEnd = currentIndex >= maxIndex;
+        
+        prevBtn.disabled = isAtStart;
+        nextBtn.disabled = isAtEnd;
+        prevBtnMobile.disabled = isAtStart;
+        nextBtnMobile.disabled = isAtEnd;
+    }
+    
+    function nextSlide() {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateCarousel();
+        }
+    }
+    
+    function prevSlide() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    }
+    
+    // Event listeners for desktop buttons
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    // Event listeners for mobile buttons
+    nextBtnMobile.addEventListener('click', nextSlide);
+    prevBtnMobile.addEventListener('click', prevSlide);
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+        }
+    });
+    
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let isDragging = false;
+    
+    track.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+    });
+    
+    track.addEventListener('touchmove', function(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+    });
+    
+    track.addEventListener('touchend', function(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const endX = e.changedTouches[0].clientX;
+        const diffX = startX - endX;
+        
+        if (Math.abs(diffX) > 50) { // Minimum swipe distance
+            if (diffX > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        }
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        cardsToShow = getCardsToShow();
+        cardWidth = getCardWidth();
+        maxIndex = Math.max(0, cards.length - cardsToShow);
+        
+        // Reset to first slide if current index is out of bounds
+        if (currentIndex > maxIndex) {
+            currentIndex = maxIndex;
+        }
+        
+        updateCarousel();
+    });
+    
+    // Initialize carousel
+    updateCarousel();
+    
+    // Auto-play functionality (optional)
+    let autoPlayInterval;
+    
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(() => {
+            if (currentIndex >= maxIndex) {
+                currentIndex = 0;
+            } else {
+                currentIndex++;
+            }
+            updateCarousel();
+        }, 4000); // Change slide every 4 seconds
+    }
+    
+    function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+    }
+    
+    // Start auto-play
+    startAutoPlay();
+    
+    // Pause auto-play on hover
+    const carousel = document.querySelector('.certifications-carousel');
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+});
