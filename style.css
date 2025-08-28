@@ -1051,7 +1051,7 @@ a {
 }
 
 .form-submit-btn:hover {
-    background: var(--primary-hover);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     transform: translateY(-2px);
     box-shadow: var(--card-shadow-hover);
 }
@@ -1190,8 +1190,16 @@ a {
 
 /* For Mobile Phones */
 @media (max-width: 768px) {
+    .education-content p {
+        font-size: 14px;
+    }
+
+    .experience-content p {
+        font-size: 14px;
+    }
+
     .section {
-        padding: 2rem 0;
+        padding: 1rem 14px;
     }
 
     .top-header h1 {
@@ -1288,7 +1296,7 @@ footer {
     .nav-menu {
         text-align: center;
         position: fixed;
-        top: 80px;
+        top: 65px;
         left: -100%;
         flex-direction: column;
         justify-content: center;
@@ -1444,9 +1452,13 @@ footer {
         justify-content: center;
     }
 
-    .footer_menu_list a {
+    .middle-footer{
         display: none;
     }
+
+    /* .footer-menu .footer_menu_list{
+        display: none;
+    } */
 }
 
 /* ----- MEDIA QUERY == 540px / RESPONSIVE ----- */
@@ -1487,9 +1499,17 @@ footer {
     }
 
     .contact-method {
-        flex-direction: column;
-        text-align: center;
+        /* flex-direction: column; */
+        /* text-align: center; */
         gap: 12px;
+    }
+
+    .contact-methods {
+        margin-bottom: 6px;
+    }
+
+    .contact-social h4 {
+        text-align: center;
     }
 
     .social-links {
@@ -1500,6 +1520,7 @@ footer {
     .image img {
         width: 150px;
         height: 150px;
+        margin-bottom: -45px;
     }
 
     .featured-text-btn {
