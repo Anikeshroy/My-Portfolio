@@ -267,3 +267,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initial start of the auto-play
     startAutoPlay();
 });
+
+// Contact Form
+(function () {
+    // ------------Public Key
+    emailjs.init("QomVJfpvOX05NnIL_");
+})();
+
+document.getElementById("contact-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    // ------------Service id & Template id
+    emailjs.sendForm("service_kqw18u7", "template_wf4wbeo", this)
+        .then(function () {
+            alert("✅ Message Sent Successfully!");
+        }, function (error) {
+            alert("❌ Failed to Send Message. Error: " + JSON.stringify(error));
+        });
+});
