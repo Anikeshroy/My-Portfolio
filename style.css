@@ -1,4 +1,4 @@
-/* ----- VARIABLES ----- */
+/* ----- Color Variables ----- */
 :root {
     --body-color: linear-gradient(to bottom, #e0eafc, #cfdef3);
     --color-white: #ffffff;
@@ -31,6 +31,17 @@
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+body {
+    background: var(--body-color);
+}
+
+.container {
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    /* not mandatory */
+}
+
 /* ----- PROGRESS BAR ----- */
 .progress-container {
     position: fixed;
@@ -59,7 +70,6 @@ html {
     display: none;
     width: 10px;
     border-radius: 25px;
-
 }
 
 ::-webkit-scrollbar-track {
@@ -105,17 +115,6 @@ i {
     font-size: 16px;
 }
 
-/* ------- BASE -------- */
-body {
-    background: var(--body-color);
-}
-
-.container {
-    width: 100%;
-    position: relative;
-    overflow-x: hidden;
-    /* not mandatory */
-}
 
 /* ----- NAVIGATION BAR ----- */
 nav {
@@ -1061,7 +1060,7 @@ a {
 }
 
 
-/* ================== Certificate Section =================== */
+/* ----- CERTIFICATE SECTION ----- */
 .certifications-carousel {
     position: relative;
     max-width: 1150px;
@@ -1175,8 +1174,48 @@ a {
     right: -25px;
 }
 
-/* ------------Responsive Certificate Section--------------- */
+/* ----- FOOTER ----- */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 30px;
+    background: var(--body-color);
+    padding-block: 40px 60px;
+}
 
+.top-footer p {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.middle-footer .footer-menu {
+    display: flex;
+}
+
+.footer_menu_list {
+    list-style: none;
+}
+
+.footer_menu_list a {
+    text-decoration: none;
+    color: var(--text-color-secondary);
+    font-weight: 500;
+    margin-inline: 20px;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 30px;
+}
+
+.bottom-footer {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* ------------Responsive Certificate Section--------------- */
 /* For Tablets and smaller desktops */
 @media (max-width: 1150px) {
     .prev-btn {
@@ -1235,49 +1274,6 @@ a {
         right: 5px;
     }
 }
-
-/* ----- FOOTER ----- */
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 30px;
-    background: var(--body-color);
-    padding-block: 40px 60px;
-}
-
-.top-footer p {
-    font-size: 25px;
-    font-weight: 600;
-}
-
-.middle-footer .footer-menu {
-    display: flex;
-}
-
-.footer_menu_list {
-    list-style: none;
-}
-
-.footer_menu_list a {
-    text-decoration: none;
-    color: var(--text-color-secondary);
-    font-weight: 500;
-    margin-inline: 20px;
-}
-
-.footer-social-icons {
-    display: flex;
-    gap: 30px;
-}
-
-.bottom-footer {
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-
 
 /* ----- MEDIA QUERY == 900px / RESPONSIVE ----- */
 @media only screen and (max-width: 900px) {
@@ -1452,7 +1448,7 @@ footer {
         justify-content: center;
     }
 
-    .middle-footer{
+    .middle-footer {
         display: none;
     }
 

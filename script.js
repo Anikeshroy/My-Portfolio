@@ -1,4 +1,4 @@
-/* ----- NAVIGATION BAR FUNCTION ----- */
+/* ----- NAVIGATION BAR ----- */
 function myMenuFunction() {
     let menuBtn = document.getElementById("myNavMenu");
 
@@ -125,7 +125,7 @@ function scrollActive() {
 
 window.addEventListener('scroll', scrollActive)
 
-/* ----- PROGRESS BAR FUNCTIONALITY ----- */
+/* ----- PROGRESS BAR ----- */
 function updateProgressBar() {
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -137,9 +137,9 @@ function updateProgressBar() {
 window.addEventListener('scroll', updateProgressBar);
 
 
-// ================= Certificate Section ===================
+/* ----- Certificate Section ----- */
 document.addEventListener('DOMContentLoaded', function () {
-    // Data for your certificates. This makes it easy to add or remove items.
+    // Certificate Data
     const certificateData = [
         { img: "./certificate/Cisco_CCNA_Enterprise_Networking_Security_and_Automation.jpg", title: "CCNA Enterprise Networking Security and Automation", issuer: "Cisco" },
         { img: "./certificate/Cisco_CCNA_Switching_Routing_and_Wireless _Essentials.jpg", title: "CCNA Switching Routing and Wireless Essentials", issuer: "Cisco" },
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
 
-    // Populate the track with original certificate cards from the data array
+    // Track with original certificate cards from the data array
     certificateData.forEach(cert => {
         track.innerHTML += `
             <div class="certification-card">
@@ -181,11 +181,11 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
     });
 
-    // --- INFINITE CAROUSEL LOGIC ---
+    // --- INFINITE CAROUSEL ---
 
     const cards = Array.from(track.children);
-    // Calculate the width of a single card including its margin
-    // The margin is set to 1rem on each side, so 2rem total -> 32px
+    // width of a single card including its margin
+    // margin is 1rem on each side, so 2rem total -> 32px
     let cardWidth = cards[0].offsetWidth + 32;
 
     // Clone the original cards to create the infinite effect
@@ -204,34 +204,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let isTransitioning = false;
 
-    // Function to handle moving the carousel
+    // Carousel moving
     const move = (direction) => {
         if (isTransitioning) return;
         isTransitioning = true;
 
-        // Enable the smooth transition effect
+        // Smooth transition effect
         track.style.transition = 'transform 0.5s ease-in-out';
         currentIndex += direction;
         track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
     };
 
-    // Attach event listeners to the navigation buttons
+    // Event listeners for navigation buttons
     nextBtn.addEventListener('click', () => move(1));
     prevBtn.addEventListener('click', () => move(-1));
 
-    // This is the magic for the infinite loop.
-    // When the transition animation ends, we check if we're on a cloned slide.
+    // Infinite loop.
     track.addEventListener('transitionend', () => {
         isTransitioning = false;
 
-        // If we've scrolled to the cloned cards at the end, silently jump back to the start
+        // End to start jump
         if (currentIndex >= cards.length * 2) {
             track.style.transition = 'none'; // Disable transition for the jump
             currentIndex = cards.length;
             track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
         }
 
-        // If we've scrolled to the cloned cards at the beginning, silently jump to the end
+        // Beginning to end jump
         if (currentIndex <= cards.length - 1) {
             track.style.transition = 'none'; // Disable transition for the jump
             currentIndex = cards.length * 2 - 1;
@@ -239,27 +238,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Handle window resizing to keep the carousel working correctly
+    // Window resizing
     const updateWidth = () => {
         cardWidth = cards[0].offsetWidth + 32; // Re-calculate on resize
-        track.style.transition = 'none'; // Avoid weird transition on resize
+        track.style.transition = 'none';
         track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
     };
     window.addEventListener('resize', updateWidth);
 
-    // --- AUTO-PLAY LOGIC ---
+    // --- AUTO-PLAY ---
     let autoPlayInterval;
 
     const startAutoPlay = () => {
-        stopAutoPlay(); // Ensure no multiple intervals are running
-        autoPlayInterval = setInterval(() => move(1), 3000); // Change slide every 3 seconds
+        stopAutoPlay(); // Multiple intervals are running
+        autoPlayInterval = setInterval(() => move(1), 3000); // Slide change in 3 seconds
     };
 
     const stopAutoPlay = () => {
         clearInterval(autoPlayInterval);
     };
 
-    // Pause auto-play when the user hovers over the carousel
+    // Pause auto-play when the user hovers
     const carouselContainer = document.querySelector('.certifications-carousel');
     carouselContainer.addEventListener('mouseenter', stopAutoPlay);
     carouselContainer.addEventListener('mouseleave', startAutoPlay);
@@ -279,8 +278,8 @@ document.getElementById("contact-form").addEventListener("submit", function (eve
     // ------------Service id & Template id
     emailjs.sendForm("service_kqw18u7", "template_wf4wbeo", this)
         .then(function () {
-            alert("✅ Message Sent Successfully!");
+            alert("Message Sent Successfully!");
         }, function (error) {
-            alert("❌ Failed to Send Message. Error: " + JSON.stringify(error));
+            alert("Failed to Send Message. Error: " + JSON.stringify(error));
         });
 });
