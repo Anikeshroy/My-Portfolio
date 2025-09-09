@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Portfolio | Anikesh Roy</title>
+    <meta name="keywords"
+        content="Anikesh Roy, Web Developer, Frontend Developer, Full Stack Developer, MERN Stack Developer, Portfolio, Frontend, JavaScript, React, Designer" />
     <meta name="description"
         content="Portfolio of Anikesh Roy – Web Developer, Designer, and Tech Enthusiast. Showcasing projects, skills, and achievements." />
     <meta name="author" content="Anikesh Roy" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://anikeshroy.xyz/" />
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:title" content="Portfolio | Anikesh Roy" />
@@ -22,7 +27,7 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt"
         content="Portfolio preview of Anikesh Roy - Web Developer, Designer, and Tech Enthusiast" />
-    <meta property="og:url" content="https://my-portfolio-inky-pi-70.vercel.app/" />
+    <meta property="og:url" content="https://anikeshroy.xyz/" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Card -->
@@ -33,7 +38,7 @@
     <meta name="twitter:image" content="https://my-portfolio-inky-pi-70.vercel.app/Image/og_image_new.png" />
     <meta name="twitter:image:alt"
         content="Portfolio preview of Anikesh Roy - Web Developer, Designer, and Tech Enthusiast" />
-    <meta name="twitter:url" content="https://my-portfolio-inky-pi-70.vercel.app/" />
+    <meta name="twitter:url" content="https://anikeshroy.xyz/" />
 
     <!-- Theme Colors Browser + Mobile -->
     <!-- dark navy -->
@@ -54,6 +59,71 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="Image/ani12.png" type="image/x-icon">
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Person",
+              "@id": "https://anikeshroy.xyz#person",
+              "name": "Anikesh Roy",
+              "url": "https://anikeshroy.xyz",
+              "image": "https://anikeshroy.xyz/Image/anipic.png",
+              "jobTitle": "Web Developer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "CODE-CLUB, GEC Jamui",
+                "url": "https://gecjamui.org"
+              },
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Bihar Engineering University (BEU)",
+                "url": "https://beu-bih.ac.in"
+              },
+              "sameAs": [
+                "https://github.com/anikeshroy",
+                "https://linkedin.com/in/anikesh-roy"
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://byte-academy-peach.vercel.app/#website",
+              "name": "ByteAcademy",
+              "url": "https://byte-academy-peach.vercel.app/",
+              "author": { "@id": "https://anikeshroy.xyz#person" },
+              "description": "ByteAcademy is an educational platform for computer science students, providing question papers, video playlists, and notes.",
+              "image": "https://anikeshroy.xyz/Project/ByteAcademy.png"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://code-club-website.vercel.app/#organization",
+              "url": "https://code-club-website.vercel.app/",
+              "name": "CODE-CLUB, GEC Jamui",
+              "description": "Official website of CODE-CLUB, GEC Jamui - a student-led technical club organizing coding contests, quizzes, and hackathons.",
+              "founder": {
+                "@type": "Person",
+                "name": "Anikesh Roy",
+                "url": "https://anikeshroy.xyz"
+              },
+              "parentOrganization": {
+                "@type": "CollegeOrUniversity",
+                "name": "Government Engineering College, Jamui",
+                "url": "https://gecjamui.org"
+              }
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://anikeshroy.github.io/arghya-web/#website",
+              "name": "Arghya Chhath Website",
+              "url": "https://anikeshroy.github.io/arghya-web/",
+              "author": { "@id": "https://anikeshroy.xyz#person" },
+              "description": "Arghya Chhath is a cultural website dedicated to the Chhath Puja festival, blending tradition with modern web design.",
+              "image": "https://anikeshroy.xyz/Project/ArghyaChhath.png"
+            }
+          ]
+        }
+    </script>
 </head>
 
 <body>
@@ -135,7 +205,7 @@
             </div>
             <div class="featured-image">
                 <div class="image">
-                    <img src="./Image/ani12.png" alt="avatar">
+                    <img src="./Image/ani12.png" alt="Anikesh Roy - Web Developer Portfolio Profile Picture">
                 </div>
             </div>
             <div class="scroll-icon-box">
@@ -210,7 +280,8 @@
             <div class="project-container">
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="./Project/ArghyaChhath.png" alt="Arghya Chhath">
+                        <img src="./Project/ArghyaChhath.png"
+                            alt="Arghya Chhath cultural website project by Anikesh Roy">
                         <div class="project-overlay">
                             <div class="project-buttons">
                                 <a href="#" class="btn-project live-btn">
@@ -239,7 +310,8 @@
 
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="./Project/ByteAcademy.png" alt="Byte Academy">
+                        <img src="./Project/ByteAcademy.png"
+                            alt="ByteAcademy educational platform for computer science students by Anikesh Roy">
                         <div class="project-overlay">
                             <div class="project-buttons">
                                 <a href="https://byte-academy-peach.vercel.app/" class="btn-project live-btn">
@@ -268,7 +340,8 @@
 
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="./Project/CodeClub.png" alt="Code Club">
+                        <img src="./Project/CodeClub.png"
+                            alt="CODE-CLUB GEC Jamui technical club website and events portal by Anikesh Roy">
                         <div class="project-overlay">
                             <div class="project-buttons">
                                 <a href="https://code-club-website.vercel.app/" class="btn-project live-btn">
@@ -632,13 +705,16 @@
             </ul>
         </div>
         <div class="footer-social-icons">
-            <div class="icon"><a href="https://www.instagram.com/call__me.ani/" target="_blank"><i class="uil uil-instagram"></i></a>
+            <div class="icon"><a href="https://www.instagram.com/call__me.ani/" target="_blank"><i
+                        class="uil uil-instagram"></i></a>
             </div>
             <div class="icon"><a href="https://www.linkedin.com/in/anikesh-roy/" target="_blank"><i
                         class="uil uil-linkedin-alt"></i></a></div>
-            <div class="icon"><a href="https://www.facebook.com/anikesh.roy.22" target="_blank"><i class="uil uil-facebook"></i></a>
+            <div class="icon"><a href="https://www.facebook.com/anikesh.roy.22" target="_blank"><i
+                        class="uil uil-facebook"></i></a>
             </div>
-            <div class="icon"><a href="https://github.com/Anikeshroy" target="_blank"><i class="uil uil-github-alt"></i></a></div>
+            <div class="icon"><a href="https://github.com/Anikeshroy" target="_blank"><i
+                        class="uil uil-github-alt"></i></a></div>
         </div>
         <div class="bottom-footer">
             <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Anikesh Roy</a> - All rights reserved

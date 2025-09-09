@@ -1,0 +1,5 @@
+my-portfolio/
+├── public/
+│   ├── robots.txt
+│   └── sitemap.xml
+└── index.html (or pages/)
