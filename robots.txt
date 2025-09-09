@@ -1,5 +1,4 @@
-my-portfolio/
-├── public/
-│   ├── robots.txt
-│   └── sitemap.xml
-└── index.html (or pages/)
+User-agent: *
+Disallow: 
+Disallow: /cgi-bin/
+Sitemap: https://www.anikeshroy.xyz/sitemap.xml
