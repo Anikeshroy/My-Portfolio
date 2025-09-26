@@ -1,4 +1,3 @@
-robots.txt generateda by www.seoptimer.com
 User-agent: *
 Disallow: 
 Disallow: /cgi-bin/
